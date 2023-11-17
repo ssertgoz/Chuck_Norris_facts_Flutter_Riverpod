@@ -2,6 +2,6 @@ import 'package:chuck_norris/src/features/random_joke/models/categories_model.da
 import '../models/random_joke_model.dart';
 
 abstract class RandomJokeRepository {
-  Future<RandomJokeModel> getRandomByCategoryJoke(String category);
+  Future<RandomJokeModel> getRandomJokeByCategory(String category);
   Future<CategoriesModel> getCategories();
 }

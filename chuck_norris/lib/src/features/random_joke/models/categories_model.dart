@@ -9,7 +9,13 @@ class CategoriesModel {
 
   factory CategoriesModel.fromDTO(CategoriesDTO dto) {
     return CategoriesModel(
-      categories: dto.categories,
+      categories: dto.categories.map<String>((e) => e.toString()).toList(),
     );
+  }
+
+  factory CategoriesModel.fromModel(CategoriesModel categoriesModel) {
+    CategoriesModel newModel =
+        CategoriesModel(categories: categoriesModel.categories);
+    return newModel;
   }
 }

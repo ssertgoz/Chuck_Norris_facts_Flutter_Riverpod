@@ -1,5 +1,5 @@
 class CategoriesDTO {
-  final List<String> categories;
+  final List<dynamic> categories;
 
   CategoriesDTO({
     required this.categories,

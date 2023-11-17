@@ -1,0 +1,26 @@
+import 'package:chuck_norris/src/constants/enums.dart';
+import 'package:chuck_norris/src/features/random_joke/models/categories_model.dart';
+import 'package:chuck_norris/src/features/random_joke/models/random_joke_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../app/providers.dart';
+
+class RandomJokeService {
+  RandomJokeService(this.ref);
+  final Ref ref;
+
+  Future<CategoriesModel> getCategories() async {
+    CategoriesModel categories =
+        await ref.read(httpRandomJokeRepositoryProvider).getCategories();
+    ref.read(categoryScreenStateProvider.notifier).state =
+        CategoryState.success;
+    ref.read(categoriesProvider.notifier).state = categories;
+    return categories;
+  }
+
+  Future<RandomJokeModel> getrandomJokeByCategory(String category) async {
+    return ref
+        .read(httpRandomJokeRepositoryProvider)
+        .getRandomJokeByCategory(category);
+  }
+}
