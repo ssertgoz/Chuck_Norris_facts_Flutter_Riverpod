@@ -1,4 +1,4 @@
-sealed class APIException implements Exception {
+class APIException implements Exception {
   APIException(this.message);
   final String message;
 }

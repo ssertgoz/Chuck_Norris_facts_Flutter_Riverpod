@@ -22,7 +22,7 @@ final goRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/d',
-      builder: (context, state) => const RandomJokeScreen(),
+      builder: (context, state) => RandomJokeScreen(),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {

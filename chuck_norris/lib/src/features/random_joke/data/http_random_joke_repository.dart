@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:chuck_norris/src/DTOs/categories_dto.dart';
+import 'package:chuck_norris/src/DTOs/joke_dto.dart';
 import 'package:chuck_norris/src/common/api.dart';
 import 'package:chuck_norris/src/errors/api_errors.dart';
 import 'package:chuck_norris/src/features/random_joke/interfaces/random_joke_repository.dart';
@@ -21,14 +22,16 @@ class HTTPRandomJokeRepository implements RandomJokeRepository {
       uri: api.categories(),
       builder: (data) => CategoriesDTO(categories: data),
     );
-    print(CategoriesModel.fromDTO(categroiesDTO).categories);
     return CategoriesModel.fromDTO(categroiesDTO);
   }
 
   @override
-  Future<RandomJokeModel> getRandomJokeByCategory(String category) {
-    // TODO: implement getRandomByCategoryJoke
-    throw UnimplementedError();
+  Future<RandomJokeModel> getRandomJokeByCategory(String category) async {
+    final randomJokeDTO = await _getData(
+      uri: api.randomJokeByCategory(category),
+      builder: (data) => JokeDTO.fromJson(data),
+    );
+    return RandomJokeModel.fromDTO(randomJokeDTO);
   }
 
   Future<T> _getData<T>({
