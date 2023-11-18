@@ -52,7 +52,7 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                           icon: Icon(
                             Icons.category,
                             color: currentIndex == 0
-                                ? darkThemeColor
+                                ? themColor
                                 : Colors.grey.shade400,
                           ),
                           iconSize: size.width * 0.05,
@@ -68,7 +68,7 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                             icon: Icon(
                               Icons.favorite,
                               color: currentIndex == 2
-                                  ? darkThemeColor
+                                  ? themColor
                                   : Colors.grey.shade400,
                             ),
                             iconSize: size.width * 0.05,
@@ -85,9 +85,9 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                       width: 80,
                       child: FloatingActionButton(
                           backgroundColor:
-                              currentIndex == 1 ? darkThemeColor : Colors.white,
+                              currentIndex == 1 ? themColor : Colors.white,
                           shape: const CircleBorder(),
-                          elevation: 5,
+                          elevation: 2,
                           materialTapTargetSize:
                               MaterialTapTargetSize.shrinkWrap,
                           isExtended: true,
@@ -97,7 +97,7 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                           child: Icon(
                             Icons.search,
                             color: currentIndex == 1
-                                ? themColor
+                                ? Colors.white
                                 : Colors.grey.shade400,
                             size: size.width * 0.05,
                           )),

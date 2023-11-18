@@ -1,5 +1,5 @@
-import 'package:chuck_norris/src/features/search_joke/models/search_joke_model.dart';
+import '../../../models/search_result_model.dart';
 
 abstract class SearchJokeRepository {
-  Future<SearchJokeModel> searchJoke(String searchText);
+  Future<SearchResultModel> searchJoke(String searchText);
 }

@@ -1,6 +1,7 @@
 // private navigators
 import 'package:chuck_norris/routing/nested_navigation.dart';
 import 'package:chuck_norris/src/screens/category_screen/category_screen.dart';
+import 'package:chuck_norris/src/screens/details_screen/details_screen.dart';
 import 'package:chuck_norris/src/screens/favorite_screen/favorite_screen.dart';
 import 'package:chuck_norris/src/screens/random_joke_screen/random_joke_screen.dart';
 import 'package:chuck_norris/src/screens/search_screen/search_screen.dart';
@@ -23,6 +24,10 @@ final goRouter = GoRouter(
     GoRoute(
       path: '/d',
       builder: (context, state) => RandomJokeScreen(),
+    ),
+    GoRoute(
+      path: '/e',
+      builder: (context, state) => DetailsScreen(),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {

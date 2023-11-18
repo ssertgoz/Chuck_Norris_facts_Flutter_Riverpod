@@ -1,0 +1,16 @@
+import 'package:chuck_norris/src/models/categories_model.dart';
+import 'package:chuck_norris/src/models/search_result_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../app/providers.dart';
+
+class SearchJokeService {
+  SearchJokeService(this.ref);
+  final Ref ref;
+
+  Future<SearchResultModel> searchJoke(String searchText) async {
+    SearchResultModel categories =
+        await ref.read(httpSearchJokeRepositoryProvider).searchJoke(searchText);
+    return categories;
+  }
+}

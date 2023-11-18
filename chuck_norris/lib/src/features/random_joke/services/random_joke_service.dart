@@ -1,7 +1,7 @@
-import 'package:chuck_norris/src/features/random_joke/models/categories_model.dart';
-import 'package:chuck_norris/src/features/random_joke/models/random_joke_model.dart';
+import 'package:chuck_norris/src/models/categories_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../models/joke_model.dart';
 import '../app/providers.dart';
 
 class RandomJokeService {
@@ -14,7 +14,7 @@ class RandomJokeService {
     return categories;
   }
 
-  Future<RandomJokeModel> getRandomJokeByCategory(String category) async {
+  Future<JokeModel> getRandomJokeByCategory(String category) async {
     return ref
         .read(httpRandomJokeRepositoryProvider)
         .getRandomJokeByCategory(category);

@@ -13,7 +13,7 @@ class ChcukNorrisJokeAPI {
       );
 
   Uri searchJokes(String searchText) => _buildUri(
-        endpoint: "jokes/forecast",
+        endpoint: "jokes/search",
         parametersBuilder: () => _searchQueryParameters(searchText),
       );
 

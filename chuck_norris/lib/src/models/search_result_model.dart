@@ -1,10 +1,9 @@
-import 'package:chuck_norris/src/features/search_joke/models/search_joke_model.dart';
-
-import '../../../DTOs/search_result_dto.dart';
+import '../DTOs/search_result_dto.dart';
+import 'joke_model.dart';
 
 class SearchResultModel {
   final int total;
-  final List<SearchJokeModel> jokes;
+  final List<JokeModel> jokes;
 
   SearchResultModel({
     required this.total,
@@ -14,7 +13,7 @@ class SearchResultModel {
   factory SearchResultModel.fromDTO(SearchResultDTO dto) {
     return SearchResultModel(
       total: dto.total,
-      jokes: dto.jokes.map((e) => SearchJokeModel.fromDTO(e)).toList(),
+      jokes: dto.jokes.map((e) => JokeModel.fromDTO(e)).toList(),
     );
   }
 }

@@ -1,7 +1,7 @@
-import 'package:chuck_norris/src/features/random_joke/models/categories_model.dart';
-import '../models/random_joke_model.dart';
+import 'package:chuck_norris/src/models/categories_model.dart';
+import '../../../models/joke_model.dart';
 
 abstract class RandomJokeRepository {
-  Future<RandomJokeModel> getRandomJokeByCategory(String category);
+  Future<JokeModel> getRandomJokeByCategory(String category);
   Future<CategoriesModel> getCategories();
 }

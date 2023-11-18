@@ -1,33 +1,12 @@
 import '../../../DTOs/joke_dto.dart';
+import '../../../models/joke_model.dart';
 
 class FavoriteJokeModel {
-  final List<String> categories;
-  final String createdAt;
-  final String iconUrl;
-  final String id;
-  final String updatedAt;
-  final String url;
-  final String value;
+  final JokeModel jokeModel;
+  final bool isFavorite;
 
   FavoriteJokeModel({
-    required this.categories,
-    required this.createdAt,
-    required this.iconUrl,
-    required this.id,
-    required this.updatedAt,
-    required this.url,
-    required this.value,
+    required this.jokeModel,
+    required this.isFavorite,
   });
-
-  factory FavoriteJokeModel.fromDTO(JokeDTO dto) {
-    return FavoriteJokeModel(
-      categories: dto.categories,
-      createdAt: dto.createdAt,
-      iconUrl: dto.iconUrl,
-      id: dto.id,
-      updatedAt: dto.updatedAt,
-      url: dto.url,
-      value: dto.value,
-    );
-  }
 }

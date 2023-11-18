@@ -18,7 +18,8 @@ class JokeDTO {
 
   factory JokeDTO.fromJson(Map<String, dynamic> json) {
     return JokeDTO(
-      categories: List.castFrom<dynamic, String>(json['categories']),
+      categories:
+          json['categories'].map<String>((data) => data.toString()).toList(),
       createdAt: json['created_at'],
       iconUrl: json['icon_url'],
       id: json['id'],

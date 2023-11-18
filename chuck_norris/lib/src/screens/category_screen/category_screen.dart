@@ -12,6 +12,7 @@ class CategoryScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: AppBar(title: Text("Categories")),
       body: Builder(
         builder: (context) {
           final categoriesState = ref.watch(categoriesControllerProvider);
@@ -30,7 +31,8 @@ class CategoryScreen extends ConsumerWidget {
                 child: LoadingIndicator(),
               );
             case CategoryState.success:
-              return const Center(
+              return const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28),
                 child: CategoryListUI(),
               );
             case CategoryState.error:

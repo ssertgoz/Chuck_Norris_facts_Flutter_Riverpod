@@ -1,5 +1,6 @@
 import 'package:chuck_norris/src/common/api.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
+import 'package:chuck_norris/src/features/favorite_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/random_joke/data/http_random_joke_repository.dart';
 import 'package:chuck_norris/src/features/random_joke/interfaces/random_joke_repository.dart';
 import 'package:chuck_norris/src/features/random_joke/widgets/categories/controllers/categories_controller.dart';
@@ -14,15 +15,17 @@ final selectedCategoryProvider = StateProvider<String>((ref) {
 
 final randomJokeControllerProvider =
     StateNotifierProvider<RandomJokeController, RandomJokeState>((ref) {
-  return RandomJokeController(randomJokeService: RandomJokeService(ref));
+  return RandomJokeController(
+      randomJokeService: ref.watch(randomJokeServiceProvider));
 });
 
 final categoriesControllerProvider =
     StateNotifierProvider<CategoriesController, CategoryState>((ref) {
-  return CategoriesController(randomJokeService: RandomJokeService(ref));
+  return CategoriesController(
+      randomJokeService: ref.watch(randomJokeServiceProvider));
 });
 
-final cartServiceProvider = Provider<RandomJokeService>((ref) {
+final randomJokeServiceProvider = Provider<RandomJokeService>((ref) {
   return RandomJokeService(ref);
 });
 

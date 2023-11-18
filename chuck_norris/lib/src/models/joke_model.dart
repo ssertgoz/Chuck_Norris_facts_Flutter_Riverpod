@@ -1,6 +1,6 @@
-import '../../../DTOs/joke_dto.dart';
+import '../DTOs/joke_dto.dart';
 
-class SearchJokeModel {
+class JokeModel {
   final List<String> categories;
   final String createdAt;
   final String iconUrl;
@@ -9,7 +9,7 @@ class SearchJokeModel {
   final String url;
   final String value;
 
-  SearchJokeModel({
+  JokeModel({
     required this.categories,
     required this.createdAt,
     required this.iconUrl,
@@ -19,8 +19,8 @@ class SearchJokeModel {
     required this.value,
   });
 
-  factory SearchJokeModel.fromDTO(JokeDTO dto) {
-    return SearchJokeModel(
+  factory JokeModel.fromDTO(JokeDTO dto) {
+    return JokeModel(
       categories: dto.categories,
       createdAt: dto.createdAt,
       iconUrl: dto.iconUrl,
@@ -29,5 +29,17 @@ class SearchJokeModel {
       url: dto.url,
       value: dto.value,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic>{};
+    data['categories'] = categories;
+    data['created_at'] = createdAt;
+    data['icon_url'] = iconUrl;
+    data['id'] = id;
+    data['updated_at'] = updatedAt;
+    data['url'] = url;
+    data['value'] = value;
+    return data;
   }
 }

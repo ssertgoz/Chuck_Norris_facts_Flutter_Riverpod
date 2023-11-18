@@ -11,10 +11,14 @@ class CategoryListUI extends ConsumerWidget {
     final categoriesController =
         ref.watch(categoriesControllerProvider.notifier);
     return ListView.builder(
+      padding: EdgeInsets.only(bottom: 300, top: 50),
       itemCount: categoriesController.categoriesModel?.categories.length ?? 0,
       itemBuilder: (context, index) {
-        return CategoryItemButtonUI(
-          category: categoriesController.categoriesModel!.categories[index],
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 5.0),
+          child: CategoryItemButtonUI(
+            category: categoriesController.categoriesModel!.categories[index],
+          ),
         );
       },
     );

@@ -1,22 +1,70 @@
+import 'package:chuck_norris/src/DTOs/joke_dto.dart';
 import 'package:chuck_norris/src/features/favorite_joke/interfaces/favorite_jokes_repository.dart';
 import 'package:chuck_norris/src/features/favorite_joke/models/favorite_joke_model.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 
 class LocalFavoriteJokesRepository implements FavoriteJokesRepository {
+  late Database _database;
+
+  Future open() async {
+    _database = await openDatabase(
+      join(await getDatabasesPath(), 'favorite_jokes_database.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          'CREATE TABLE favorites(id TEXT PRIMARY KEY, categories TEXT, created_at TEXT, icon_url TEXT, updated_at TEXT, url TEXT, value TEXT)',
+        );
+      },
+      version: 1,
+    );
+  }
+
+  Future close() async => _database!.close();
+
   @override
-  Future<void> addJokeToFavorites(FavoriteJokeModel joke) {
-    // TODO: implement addJokeToFavorites
-    throw UnimplementedError();
+  Future<void> addJokeToFavorites(Map<String, dynamic> joke) async {
+    await open();
+    await _database.insert(
+      'favorites',
+      joke,
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   @override
-  Future<List<FavoriteJokeModel>> getJokes() {
-    // TODO: implement getWeather
-    throw UnimplementedError();
+  Future<List<JokeDTO>> getJokes() async {
+    await open();
+    final List<Map<String, dynamic>> maps = await _database.query('favorites');
+
+    return List.generate(maps.length, (i) {
+      return JokeDTO.fromJson(maps[i]);
+    });
   }
 
   @override
-  Future<void> removeJokeFromFavorites(FavoriteJokeModel joke) {
-    // TODO: implement removeJokeFromFavorites
-    throw UnimplementedError();
+  Future<void> removeJokeFromFavorites(String id) async {
+    await open();
+    await _database.delete(
+      'favorites',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  @override
+  Future<bool> isFavorite(String id) async {
+    await open();
+    final count = Sqflite.firstIntValue(
+          await _database
+              .rawQuery('SELECT COUNT(*) FROM favorites WHERE id = ?', [id]),
+        ) ??
+        0;
+    return count > 0;
+  }
+
+  @override
+  Future<void> clearAllFavorites() async {
+    await open();
+    await _database.delete('favorites');
   }
 }

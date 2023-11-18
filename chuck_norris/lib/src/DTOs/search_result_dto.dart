@@ -11,7 +11,7 @@ class SearchResultDTO {
   factory SearchResultDTO.fromJson(Map<String, dynamic> json) {
     return SearchResultDTO(
       total: json['total'],
-      jokes: List.from(json['result']).map((e) => JokeDTO.fromJson(e)).toList(),
+      jokes: json['result'].map<JokeDTO>((e) => JokeDTO.fromJson(e)).toList(),
     );
   }
 
