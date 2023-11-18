@@ -19,7 +19,7 @@ class LocalFavoriteJokesRepository implements FavoriteJokesRepository {
     );
   }
 
-  Future close() async => _database!.close();
+  Future close() async => _database.close();
 
   @override
   Future<void> addJokeToFavorites(Map<String, dynamic> joke) async {
@@ -37,7 +37,7 @@ class LocalFavoriteJokesRepository implements FavoriteJokesRepository {
     final List<Map<String, dynamic>> maps = await _database.query('favorites');
 
     return List.generate(maps.length, (i) {
-      return JokeDTO.fromJson(maps[i]);
+      return JokeDTO.fromJson(maps[i], isFromLocal: true);
     });
   }
 

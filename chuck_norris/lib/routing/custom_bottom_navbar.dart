@@ -1,3 +1,4 @@
+import 'package:chuck_norris/routing/animated_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../src/constants/colors.dart';
@@ -48,30 +49,20 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.category,
-                            color: currentIndex == 0
-                                ? themColor
-                                : Colors.grey.shade400,
-                          ),
-                          iconSize: size.width * 0.05,
-                          onPressed: () {
-                            setBottomBarIndex(0);
-                          },
-                          splashColor: Colors.white,
-                        ),
+                        AnimatedIconButton(
+                            icon: Icons.category,
+                            iconColor:
+                                currentIndex == 0 ? themColor : disabledColor,
+                            onPressed: () {
+                              setBottomBarIndex(0);
+                            }),
                         SizedBox(
                           width: 50,
                         ),
-                        IconButton(
-                            icon: Icon(
-                              Icons.favorite,
-                              color: currentIndex == 2
-                                  ? themColor
-                                  : Colors.grey.shade400,
-                            ),
-                            iconSize: size.width * 0.05,
+                        AnimatedIconButton(
+                            icon: Icons.favorite,
+                            iconColor:
+                                currentIndex == 2 ? themColor : disabledColor,
                             onPressed: () {
                               setBottomBarIndex(2);
                             }),
@@ -84,23 +75,21 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                       height: 80,
                       width: 80,
                       child: FloatingActionButton(
-                          backgroundColor:
-                              currentIndex == 1 ? themColor : Colors.white,
-                          shape: const CircleBorder(),
-                          elevation: 2,
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.shrinkWrap,
-                          isExtended: true,
-                          onPressed: () {
-                            setBottomBarIndex(1);
-                          },
-                          child: Icon(
-                            Icons.search,
-                            color: currentIndex == 1
-                                ? Colors.white
-                                : Colors.grey.shade400,
-                            size: size.width * 0.05,
-                          )),
+                        backgroundColor:
+                            currentIndex == 1 ? themColor : lightThemeColor,
+                        shape: const CircleBorder(),
+                        elevation: 2,
+                        isExtended: true,
+                        onPressed: () {},
+                        child: AnimatedIconButton(
+                            icon: Icons.search,
+                            iconColor: currentIndex == 1
+                                ? lightThemeColor
+                                : disabledColor,
+                            onPressed: () {
+                              setBottomBarIndex(1);
+                            }),
+                      ),
                     ),
                   ),
                 ],
@@ -117,7 +106,7 @@ class BNBCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.white
+      ..color = lightThemeColor
       ..style = PaintingStyle.fill;
 
     Path path = Path();
@@ -136,7 +125,7 @@ class BNBCustomPainter extends CustomPainter {
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     //path.lineTo(0, 20);
-    canvas.drawShadow(path, Colors.black, 15, false);
+    canvas.drawShadow(path, darkThemeColor, 15, false);
     canvas.drawPath(path, paint);
   }
 

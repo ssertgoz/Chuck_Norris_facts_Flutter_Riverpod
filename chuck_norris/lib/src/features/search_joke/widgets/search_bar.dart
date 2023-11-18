@@ -4,6 +4,7 @@ import 'package:chuck_norris/src/constants/colors.dart';
 import 'package:chuck_norris/src/features/search_joke/app/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchBarUI extends ConsumerStatefulWidget {
   const SearchBarUI({super.key});
@@ -47,6 +48,7 @@ class _SearchBarUIState extends ConsumerState<SearchBarUI> {
             Expanded(
               child: TextField(
                 controller: _controller,
+                style: GoogleFonts.kalam(),
                 onChanged: (value) {
                   onSearchChanged(value);
                 },

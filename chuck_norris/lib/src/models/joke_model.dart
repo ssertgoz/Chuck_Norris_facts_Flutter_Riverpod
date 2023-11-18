@@ -33,7 +33,7 @@ class JokeModel {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['categories'] = categories;
+    data['categories'] = categories.join(",");
     data['created_at'] = createdAt;
     data['icon_url'] = iconUrl;
     data['id'] = id;

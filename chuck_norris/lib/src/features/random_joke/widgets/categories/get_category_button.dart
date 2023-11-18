@@ -12,7 +12,7 @@ class GetCategoryButtonUI extends ConsumerWidget {
         onPressed: () {
           ref.read(categoriesControllerProvider.notifier).getCategories();
         },
-        child: Text("Get Category"),
+        child: Text("Get Categories"),
       ),
     );
   }

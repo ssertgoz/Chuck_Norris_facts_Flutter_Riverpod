@@ -16,10 +16,11 @@ class JokeDTO {
   late final String url;
   late final String value;
 
-  factory JokeDTO.fromJson(Map<String, dynamic> json) {
+  factory JokeDTO.fromJson(Map<String, dynamic> json, {isFromLocal = false}) {
     return JokeDTO(
-      categories:
-          json['categories'].map<String>((data) => data.toString()).toList(),
+      categories: isFromLocal
+          ? json['categories'].toString().split(",")
+          : json['categories'].map<String>((data) => data.toString()).toList(),
       createdAt: json['created_at'],
       iconUrl: json['icon_url'],
       id: json['id'],

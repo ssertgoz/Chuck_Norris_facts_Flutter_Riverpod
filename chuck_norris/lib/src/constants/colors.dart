@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const Color themColor = Color.fromARGB(255, 37, 154, 219);
-const Color lightThemColor = Color.fromARGB(255, 205, 238, 178);
-const Color themColor2 = Color.fromARGB(255, 144, 162, 129);
 const Color darkThemeColor = Color.fromARGB(255, 34, 53, 15);
-const Color choosenOptionGreenColor = Color.fromARGB(255, 117, 188, 97);
+const Color lightThemeColor = Color.fromARGB(255, 232, 241, 250);
+const Color redColor = Colors.red;
+Color disabledColor = themColor.withOpacity(0.2);

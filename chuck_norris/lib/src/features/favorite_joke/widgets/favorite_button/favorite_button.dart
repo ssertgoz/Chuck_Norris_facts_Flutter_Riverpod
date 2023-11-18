@@ -1,3 +1,4 @@
+import 'package:chuck_norris/src/constants/colors.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/features/favorite_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/favorite_joke/models/favorite_joke_model.dart';
@@ -61,7 +62,7 @@ class _FavoriteButtonState extends ConsumerState<FavoriteButton> {
             Icon(
               _favoritesState ? Icons.favorite : Icons.favorite_border,
               size: 20,
-              color: Colors.red,
+              color: redColor,
             )
           ],
         ));

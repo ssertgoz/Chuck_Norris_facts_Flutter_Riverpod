@@ -1,22 +1,19 @@
-import 'package:chuck_norris/src/constants/colors.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/features/favorite_joke/widgets/favorite_button/favorite_button.dart';
 import 'package:chuck_norris/src/features/random_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/random_joke/widgets/random_joke/see_on_the_web_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import '../../common/custom_loading_indicator.dart';
 import '../../common/joke_card.dart';
-import '../../features/favorite_joke/app/providers.dart';
 
 class RandomJokeScreen extends ConsumerWidget {
   const RandomJokeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final category = ref.read(selectedCategoryProvider.notifier).state;
     final randomJokeModel =
         ref.watch(randomJokeControllerProvider.notifier).randomJokeModel;
     final randomJokeState = ref.watch(randomJokeControllerProvider);
@@ -55,8 +52,23 @@ class RandomJokeScreen extends ConsumerWidget {
               );
 
             case RandomJokeState.error:
-              return const Center(
-                child: Text("Error"),
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 150),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                        height: 250,
+                        child: LottieBuilder.asset(
+                            "assets/animations/error.json")),
+                    Text(
+                      ref
+                          .watch(randomJokeControllerProvider.notifier)
+                          .errorMessage,
+                      style: GoogleFonts.kalam(),
+                    ),
+                  ],
+                ),
               );
           }
         },

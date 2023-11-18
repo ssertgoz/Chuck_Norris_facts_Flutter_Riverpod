@@ -9,6 +9,7 @@ class SearchList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView.builder(
+      padding: EdgeInsets.only(top: 50),
       itemCount: searchResult.total,
       itemBuilder: (context, index) =>
           SearchItem(joke: searchResult.jokes[index]),

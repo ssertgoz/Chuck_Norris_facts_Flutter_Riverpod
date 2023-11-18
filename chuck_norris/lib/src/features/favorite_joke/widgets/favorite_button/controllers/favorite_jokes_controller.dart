@@ -1,11 +1,7 @@
 import 'dart:async';
-
 import 'package:chuck_norris/src/constants/enums.dart';
-import 'package:chuck_norris/src/models/categories_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../../../models/joke_model.dart';
-import '../../../models/favorite_joke_model.dart';
 import '../../../services/favorite_jokes_service.dart';
 
 class FavoriteJokesController extends StateNotifier<FavoriteJokesState> {
@@ -20,9 +16,12 @@ class FavoriteJokesController extends StateNotifier<FavoriteJokesState> {
     try {
       state = FavoriteJokesState.loading;
       favoriteJokes = await _favoriteJokesService.getFavorites();
-      state = FavoriteJokesState.success;
+      if (favoriteJokes!.isEmpty) {
+        state = FavoriteJokesState.empty;
+      } else {
+        state = FavoriteJokesState.success;
+      }
     } catch (e) {
-      print(e);
       state = FavoriteJokesState.error;
     }
   }
@@ -31,7 +30,6 @@ class FavoriteJokesController extends StateNotifier<FavoriteJokesState> {
     try {
       _favoriteJokesService.addJokeToFavorites(joke);
     } catch (e) {
-      print(e);
       state = FavoriteJokesState.error;
     }
   }
@@ -40,7 +38,6 @@ class FavoriteJokesController extends StateNotifier<FavoriteJokesState> {
     try {
       _favoriteJokesService.removeJokeFromFavorites(joke);
     } catch (e) {
-      print(e);
       state = FavoriteJokesState.error;
     }
   }
@@ -50,7 +47,6 @@ class FavoriteJokesController extends StateNotifier<FavoriteJokesState> {
       final isFavorite = await _favoriteJokesService.isFavorite(joke);
       return isFavorite;
     } catch (e) {
-      print(e);
       state = FavoriteJokesState.error;
     }
     return false;
@@ -59,8 +55,8 @@ class FavoriteJokesController extends StateNotifier<FavoriteJokesState> {
   Future<void> clearFavorites() async {
     try {
       await _favoriteJokesService.clearFavorites();
+      state = FavoriteJokesState.empty;
     } catch (e) {
-      print(e);
       state = FavoriteJokesState.error;
     }
   }

@@ -1,5 +1,4 @@
 import 'package:chuck_norris/src/constants/colors.dart';
-import 'package:chuck_norris/src/utils/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

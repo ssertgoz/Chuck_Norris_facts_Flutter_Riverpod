@@ -42,7 +42,8 @@ class SearchItem extends ConsumerWidget {
                       )),
             ),
             Expanded(
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: Text(
                   joke.value,
                   overflow: TextOverflow.ellipsis,

@@ -10,22 +10,26 @@ Future<void> openUrl(String url) async => await canLaunchUrl(Uri.parse(url))
     ? await launchUrl(Uri.parse(url))
     : throw Exception();
 
+String apiMessageFormatter(Response response) {
+  String message = json.decode(response.body)["message"].split(": ")[1];
+  message = message[0].toUpperCase() + message.substring(1);
+  return message;
+}
+
 Future<T> getData<T>(
     {required Uri uri,
     required T Function(dynamic data) builder,
     required Client client}) async {
   try {
-    print('${uri.scheme}://${uri.host}${uri.path}');
     final response = await client.get(uri);
-    print(response.body);
     switch (response.statusCode) {
       case 200:
         final data = json.decode(response.body);
         return builder(data);
       case 404:
-        throw NoCategoriesFoundFoundException();
-      case 500: //TODO add message
-        throw NoCategoriesFoundFoundException();
+        throw APIException(apiMessageFormatter(response));
+      case 500:
+        throw APIException(apiMessageFormatter(response));
       default:
         throw UnknownException();
     }

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:chuck_norris/src/constants/enums.dart';
+import 'package:chuck_norris/src/errors/api_errors.dart';
 import 'package:chuck_norris/src/models/search_result_model.dart';
 import 'package:chuck_norris/src/features/search_joke/services/search_joke_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,14 +13,28 @@ class SearchJokeController extends StateNotifier<SearchJokeState> {
   }
   late final SearchJokeService _searchJokeService;
   SearchResultModel? searchresultModel;
+  String errorMessage = "";
 
   Future<void> searchJoke(String searchText) async {
     try {
       state = SearchJokeState.loading;
       searchresultModel = await _searchJokeService.searchJoke(searchText);
-      state = SearchJokeState.success;
+      if (searchresultModel!.jokes.isEmpty) {
+        state = SearchJokeState.empty;
+      } else {
+        state = SearchJokeState.success;
+      }
+    } on NoInternetConnectionException catch (e) {
+      errorMessage = e.message;
+      state = SearchJokeState.error;
+    } on UnknownException catch (e) {
+      errorMessage = e.message;
+      state = SearchJokeState.error;
+    } on APIException catch (e) {
+      errorMessage = e.message;
+      state = SearchJokeState.error;
     } catch (e) {
-      print(e);
+      errorMessage = e.toString();
       state = SearchJokeState.error;
     }
   }
