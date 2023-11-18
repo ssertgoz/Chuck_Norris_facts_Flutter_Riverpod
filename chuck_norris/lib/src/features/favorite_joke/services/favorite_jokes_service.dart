@@ -1,6 +1,5 @@
 import 'package:chuck_norris/src/DTOs/joke_dto.dart';
 import 'package:chuck_norris/src/features/favorite_joke/app/providers.dart';
-import 'package:chuck_norris/src/features/favorite_joke/models/favorite_joke_model.dart';
 import 'package:chuck_norris/src/models/joke_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

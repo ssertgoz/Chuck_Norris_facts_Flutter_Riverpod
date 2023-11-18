@@ -1,4 +1,3 @@
-import 'package:chuck_norris/src/models/categories_model.dart';
 import 'package:chuck_norris/src/models/search_result_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

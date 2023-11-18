@@ -1,5 +1,3 @@
-import 'package:chuck_norris/src/features/favorite_joke/models/favorite_joke_model.dart';
-
 import '../../../DTOs/joke_dto.dart';
 
 abstract class FavoriteJokesRepository {

@@ -1,6 +1,5 @@
 import 'package:chuck_norris/src/common/api.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
-import 'package:chuck_norris/src/features/favorite_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/random_joke/data/http_random_joke_repository.dart';
 import 'package:chuck_norris/src/features/random_joke/interfaces/random_joke_repository.dart';
 import 'package:chuck_norris/src/features/random_joke/widgets/categories/controllers/categories_controller.dart';
