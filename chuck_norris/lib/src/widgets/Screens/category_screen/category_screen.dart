@@ -39,8 +39,9 @@ class CategoryScreen extends ConsumerWidget {
               );
             case CategoryState.error:
               return Padding(
-                padding: CustomPaddings.mediumPaddingAll,
+                padding: CustomPaddings.listPadding,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                         height: height * 0.2,

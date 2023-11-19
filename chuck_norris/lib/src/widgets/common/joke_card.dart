@@ -38,15 +38,20 @@ class JokeCardUI extends StatelessWidget {
                   "Categories:",
                   style: CustomFontStyles.lilitaOneNormal,
                 ),
-                joke.categories[0] != ""
-                    ? Wrap(
-                        children: List.generate(
-                            joke.categories.length,
-                            (index) => Text(
-                                  "${joke.categories[index]}, ",
-                                  style: CustomFontStyles.kalamNormal,
-                                )),
-                      )
+                joke.categories.isNotEmpty
+                    ? joke.categories[0] != ""
+                        ? Wrap(
+                            children: List.generate(
+                                joke.categories.length,
+                                (index) => Text(
+                                      "${joke.categories[index]}, ",
+                                      style: CustomFontStyles.kalamNormal,
+                                    )),
+                          )
+                        : Text(
+                            "---",
+                            style: CustomFontStyles.kalamNormal,
+                          )
                     : Text(
                         "---",
                         style: CustomFontStyles.kalamNormal,
