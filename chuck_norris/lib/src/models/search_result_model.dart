@@ -1,4 +1,4 @@
-import '../DTOs/search_result_dto.dart';
+import '../dtos/search_result_dto.dart';
 import 'joke_model.dart';
 
 class SearchResultModel {

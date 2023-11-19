@@ -19,7 +19,7 @@ class JokeDTO {
   factory JokeDTO.fromJson(Map<String, dynamic> json, {isFromLocal = false}) {
     return JokeDTO(
       categories: isFromLocal
-          ? json['categories'].toString().split(",")
+          ? [json['categories'].toString()]
           : json['categories'].map<String>((data) => data.toString()).toList(),
       createdAt: json['created_at'],
       iconUrl: json['icon_url'],
@@ -32,7 +32,7 @@ class JokeDTO {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['categories'] = categories;
+    data['categories'] = categories.toString();
     data['created_at'] = createdAt;
     data['icon_url'] = iconUrl;
     data['id'] = id;

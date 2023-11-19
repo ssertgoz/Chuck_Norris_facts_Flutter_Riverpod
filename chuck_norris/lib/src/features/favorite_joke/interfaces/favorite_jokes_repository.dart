@@ -1,4 +1,4 @@
-import '../../../DTOs/joke_dto.dart';
+import '../../../dtos/joke_dto.dart';
 
 abstract class FavoriteJokesRepository {
   Future<List<JokeDTO>> getJokes();

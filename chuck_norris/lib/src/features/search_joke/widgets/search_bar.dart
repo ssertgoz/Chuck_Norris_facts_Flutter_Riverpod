@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:chuck_norris/src/constants/colors.dart';
 import 'package:chuck_norris/src/constants/font_styles.dart';
 import 'package:chuck_norris/src/constants/paddings.dart';
-import 'package:chuck_norris/src/features/search_joke/app/providers.dart';
+import 'package:chuck_norris/src/features/search_joke/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,34 +33,40 @@ class _SearchBarUIState extends ConsumerState<SearchBarUI> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: CustomPaddings.smallPaddingAll,
-        child: Row(
-          children: [
-            const Icon(
-              Icons.search,
-              color: CustomColors.themColor,
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Expanded(
-              child: TextField(
-                controller: _controller,
-                style: CustomFontStyles.kalamNormal,
-                onChanged: (value) {
-                  onSearchChanged(value);
-                },
-                onSubmitted: (value) {
-                  onSearchChanged(value);
-                },
-                cursorColor: CustomColors.themColor,
-                decoration: const InputDecoration(
-                    hintText: 'Searc jokes', border: InputBorder.none),
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    return SizedBox(
+      width: width,
+      child: Card(
+        child: Padding(
+          padding: CustomPaddings.smallPaddingAll,
+          child: Row(
+            children: [
+              Icon(
+                Icons.search,
+                size: height * 0.025,
+                color: CustomColors.themColor,
               ),
-            ),
-          ],
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: TextField(
+                  controller: _controller,
+                  style: CustomFontStyles.kalamNormal,
+                  onChanged: (value) {
+                    onSearchChanged(value);
+                  },
+                  onSubmitted: (value) {
+                    onSearchChanged(value);
+                  },
+                  cursorColor: CustomColors.themColor,
+                  decoration: const InputDecoration(
+                      hintText: 'Searc jokes', border: InputBorder.none),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

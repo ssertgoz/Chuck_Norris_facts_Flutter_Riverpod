@@ -1,4 +1,4 @@
-import 'package:chuck_norris/src/DTOs/joke_dto.dart';
+import 'package:chuck_norris/src/dtos/joke_dto.dart';
 
 class SearchResultDTO {
   SearchResultDTO({

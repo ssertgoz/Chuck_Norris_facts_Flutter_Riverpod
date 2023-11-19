@@ -1,4 +1,4 @@
-import 'package:chuck_norris/src/features/random_joke/app/providers.dart';
+import 'package:chuck_norris/src/features/random_joke/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,7 +12,7 @@ class GetCategoryButtonUI extends ConsumerWidget {
         onPressed: () {
           ref.read(categoriesControllerProvider.notifier).getCategories();
         },
-        child: Text("Get Categories"),
+        child: const Text("Get Categories"),
       ),
     );
   }

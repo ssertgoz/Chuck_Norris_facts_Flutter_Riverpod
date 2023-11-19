@@ -1,4 +1,4 @@
-import 'package:chuck_norris/src/DTOs/joke_dto.dart';
+import 'package:chuck_norris/src/dtos/joke_dto.dart';
 import 'package:chuck_norris/src/features/favorite_joke/interfaces/favorite_jokes_repository.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';

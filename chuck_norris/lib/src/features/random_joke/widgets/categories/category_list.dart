@@ -1,5 +1,5 @@
 import 'package:chuck_norris/src/constants/paddings.dart';
-import 'package:chuck_norris/src/features/random_joke/app/providers.dart';
+import 'package:chuck_norris/src/features/random_joke/providers.dart';
 import 'package:chuck_norris/src/features/random_joke/widgets/categories/category_item_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

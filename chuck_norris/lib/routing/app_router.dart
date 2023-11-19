@@ -1,10 +1,10 @@
 // private navigators
-import 'package:chuck_norris/routing/nested_navigation.dart';
-import 'package:chuck_norris/src/screens/category_screen/category_screen.dart';
-import 'package:chuck_norris/src/screens/details_screen/details_screen.dart';
-import 'package:chuck_norris/src/screens/favorite_screen/favorite_screen.dart';
-import 'package:chuck_norris/src/screens/random_joke_screen/random_joke_screen.dart';
-import 'package:chuck_norris/src/screens/search_screen/search_screen.dart';
+import 'package:chuck_norris/src/widgets/Screens/category_screen/category_screen.dart';
+import 'package:chuck_norris/src/widgets/Screens/details_screen/details_screen.dart';
+import 'package:chuck_norris/src/widgets/Screens/favorite_screen/favorite_screen.dart';
+import 'package:chuck_norris/src/widgets/Screens/random_joke_screen/random_joke_screen.dart';
+import 'package:chuck_norris/src/widgets/Screens/search_screen/search_screen.dart';
+import 'package:chuck_norris/src/widgets/common/bottom_nawbar/nested_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

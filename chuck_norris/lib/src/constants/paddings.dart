@@ -13,7 +13,7 @@ class CustomPaddings {
   static const mediumPaddingAll = EdgeInsets.all(12);
   static const largePaddingAll = EdgeInsets.all(30);
 
-  static const listPadding = EdgeInsets.only(bottom: 300, top: 50);
+  static const listPadding = EdgeInsets.only(bottom: 300, top: 100);
   static const listItemPadding = EdgeInsets.only(bottom: 5);
   static const favoriteScreenPadding =
       EdgeInsets.only(bottom: 150, left: 18, right: 18);

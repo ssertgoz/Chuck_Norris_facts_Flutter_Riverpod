@@ -1,4 +1,4 @@
-import '../DTOs/categories_dto.dart';
+import '../dtos/categories_dto.dart';
 
 class CategoriesModel {
   final List<String> categories;

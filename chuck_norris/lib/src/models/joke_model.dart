@@ -1,4 +1,4 @@
-import '../DTOs/joke_dto.dart';
+import '../dtos/joke_dto.dart';
 
 class JokeModel {
   final List<String> categories;

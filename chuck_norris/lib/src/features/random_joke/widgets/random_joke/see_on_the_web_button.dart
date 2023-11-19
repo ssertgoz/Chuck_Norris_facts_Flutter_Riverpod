@@ -1,4 +1,4 @@
-import 'package:chuck_norris/src/features/random_joke/app/providers.dart';
+import 'package:chuck_norris/src/features/random_joke/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,19 +9,23 @@ class SeeOnTheWebButtonUI extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final double height = MediaQuery.of(context).size.height;
     return ElevatedButton(
         onPressed: () {
           ref
               .read(randomJokeControllerProvider.notifier)
               .openUrlOntheBrowser(url);
         },
-        child: const Row(
+        child: Row(
           children: [
-            Text("See on the web"),
-            SizedBox(
+            const Text("See on the web"),
+            const SizedBox(
               width: 10,
             ),
-            Icon(Icons.arrow_outward)
+            Icon(
+              Icons.arrow_outward,
+              size: height * 0.02,
+            )
           ],
         ));
   }

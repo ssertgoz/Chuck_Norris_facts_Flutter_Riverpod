@@ -1,12 +1,11 @@
-import 'package:chuck_norris/src/DTOs/categories_dto.dart';
-import 'package:chuck_norris/src/DTOs/joke_dto.dart';
-import 'package:chuck_norris/src/common/api.dart';
+import 'package:chuck_norris/src/dtos/categories_dto.dart';
+import 'package:chuck_norris/src/dtos/joke_dto.dart';
 import 'package:chuck_norris/src/features/random_joke/interfaces/random_joke_repository.dart';
 import 'package:chuck_norris/src/models/categories_model.dart';
 import 'package:http/http.dart';
-
+import '../../../APIs/chuck_norris/chuck_norris_api.dart';
+import '../../../APIs/chuck_norris/helper_functions.dart';
 import '../../../models/joke_model.dart';
-import '../../../utils/helpers.dart';
 
 class HTTPRandomJokeRepository implements RandomJokeRepository {
   HTTPRandomJokeRepository({required this.client, required this.api});
