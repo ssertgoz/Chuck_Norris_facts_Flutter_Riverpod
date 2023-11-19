@@ -4,11 +4,14 @@
 
 This Flutter application utilizes Chuck Norris API to provide a Chuck Norris joke browsing experience. Below, you will find detailed information on the app's features, navigation, state management, and additional functionalities.
 
+
+
+
 ## Project Structure
 
 The project adheres to a clean and organized structure for clarity and maintainability:
 
-![screen shot](screen_shots/folder.png)
+![screen shot](screen_shots/folder.png){150}x{150}
 
 ![screen shot](screen_shots/1.png)
 
