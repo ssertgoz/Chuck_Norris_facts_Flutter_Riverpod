@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/errors/api_errors.dart';
 import 'package:chuck_norris/src/models/search_result_model.dart';

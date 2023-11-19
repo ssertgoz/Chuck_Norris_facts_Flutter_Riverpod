@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/errors/api_errors.dart';
 import 'package:chuck_norris/src/models/categories_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../services/random_joke_service.dart';
 
 class CategoriesController extends StateNotifier<CategoryState> {
