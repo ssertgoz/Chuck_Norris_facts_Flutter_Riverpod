@@ -1,7 +1,6 @@
 
 # Flutter Chuck Norris App
 
-### Persönliche Daten
 
 This Flutter application utilizes Chuck Norris API to provide a Chuck Norris joke browsing experience. Below, you will find detailed information on the app's features, navigation, state management, and additional functionalities.
 
