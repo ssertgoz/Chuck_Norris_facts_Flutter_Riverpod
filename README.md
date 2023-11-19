@@ -9,7 +9,7 @@ This Flutter application utilizes Chuck Norris API to provide a Chuck Norris jok
 
 The project adheres to a clean and organized structure for clarity and maintainability:
 
-![screen shot](/screen_shots/Screenshot 2023-11-20 at 00.18.20.jpg)
+![screen shot](/screen_shots/Screenshot 2023-11-20 at 00.18.20.png)
 
 ![screen shot](screen_shots/Screenshot 2023-11-20 at 00.20.04.jpg)
 
