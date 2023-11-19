@@ -1,11 +1,11 @@
 import 'package:chuck_norris/src/widgets/common/joke_card.dart';
-import 'package:chuck_norris/src/features/random_joke/widgets/random_joke/see_on_the_web_button.dart';
-import 'package:chuck_norris/src/features/search_joke/providers.dart';
+import 'package:chuck_norris/src/components/random_joke/widgets/random_joke/see_on_the_web_button.dart';
+import 'package:chuck_norris/src/components/search_joke/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constants/paddings.dart';
-import '../../../features/favorite_joke/widgets/favorite_button.dart';
+import '../../../components/favorite_joke/widgets/favorite_button.dart';
 
 class DetailsScreen extends ConsumerWidget {
   const DetailsScreen({super.key});

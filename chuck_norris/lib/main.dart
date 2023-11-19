@@ -1,4 +1,4 @@
-import 'package:chuck_norris/routing/app_router.dart';
+import 'package:chuck_norris/src/utils/app_router.dart';
 import 'package:chuck_norris/src/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

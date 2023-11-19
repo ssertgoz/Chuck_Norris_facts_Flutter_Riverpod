@@ -1,4 +1,4 @@
-import 'package:chuck_norris/routing/animated_icon_button.dart';
+import 'package:chuck_norris/src/widgets/common/bottom_nawbar/animated_icon_button.dart';
 import 'package:chuck_norris/src/constants/colors.dart';
 import 'package:flutter/material.dart';
 

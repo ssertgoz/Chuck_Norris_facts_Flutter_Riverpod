@@ -1,14 +1,14 @@
 import 'package:chuck_norris/src/constants/assets.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/constants/paddings.dart';
-import 'package:chuck_norris/src/features/random_joke/providers.dart';
+import 'package:chuck_norris/src/components/random_joke/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import '../../common/custom_loading_indicator.dart';
-import '../../../features/random_joke/widgets/categories/category_list.dart';
-import '../../../features/random_joke/widgets/categories/get_category_button.dart';
+import '../../../components/random_joke/widgets/categories/category_list.dart';
+import '../../../components/random_joke/widgets/categories/get_category_button.dart';
 
 class CategoryScreen extends ConsumerWidget {
   const CategoryScreen({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:chuck_norris/src/constants/font_styles.dart';
 import 'package:chuck_norris/src/constants/paddings.dart';
-import 'package:chuck_norris/src/features/favorite_joke/widgets/clear_alll_button.dart';
+import 'package:chuck_norris/src/components/favorite_joke/widgets/clear_alll_button.dart';
 import 'package:chuck_norris/src/widgets/common/custom_loading_indicator.dart';
 import 'package:chuck_norris/src/constants/assets.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
-import 'package:chuck_norris/src/features/favorite_joke/providers.dart';
-import 'package:chuck_norris/src/features/search_joke/widgets/list_item.dart';
+import 'package:chuck_norris/src/components/favorite_joke/providers.dart';
+import 'package:chuck_norris/src/components/search_joke/widgets/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';

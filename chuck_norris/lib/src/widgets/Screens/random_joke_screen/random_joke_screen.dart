@@ -1,9 +1,9 @@
 import 'package:chuck_norris/src/constants/assets.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/constants/font_styles.dart';
-import 'package:chuck_norris/src/features/favorite_joke/widgets/favorite_button.dart';
-import 'package:chuck_norris/src/features/random_joke/providers.dart';
-import 'package:chuck_norris/src/features/random_joke/widgets/random_joke/see_on_the_web_button.dart';
+import 'package:chuck_norris/src/components/favorite_joke/widgets/favorite_button.dart';
+import 'package:chuck_norris/src/components/random_joke/providers.dart';
+import 'package:chuck_norris/src/components/random_joke/widgets/random_joke/see_on_the_web_button.dart';
 import 'package:chuck_norris/src/widgets/common/custom_loading_indicator.dart';
 import 'package:chuck_norris/src/widgets/common/joke_card.dart';
 import 'package:flutter/material.dart';
