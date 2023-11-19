@@ -1,10 +1,13 @@
+import 'package:chuck_norris/routing/app_router.dart';
 import 'package:chuck_norris/src/constants/colors.dart';
+import 'package:chuck_norris/src/constants/paddings.dart';
 import 'package:chuck_norris/src/features/search_joke/app/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../constants/font_styles.dart';
 import '../../../models/joke_model.dart';
 
 class SearchItem extends ConsumerWidget {
@@ -14,23 +17,24 @@ class SearchItem extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       height: 100,
-      margin: EdgeInsets.only(bottom: 20),
+      margin: CustomPaddings.smallPaddingVertical,
       child: ElevatedButton(
         onPressed: () {
           ref.read(selectedJokeProvider.notifier).state = joke;
-          context.push("/e");
+          context.push(RouteNames.jokeDetailScreen);
         },
         child: Padding(
-          padding: EdgeInsets.all(12.0),
+          padding: CustomPaddings.mediumPaddingAll,
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
               "Categories",
-              style: GoogleFonts.kalam(fontWeight: FontWeight.w700),
+              style: CustomFontStyles.kalamNormalBold,
             ),
             joke.categories.length == 0
                 ? Text("-",
-                    style: GoogleFonts.kalam(color: themColor.withOpacity(0.5)))
+                    style: GoogleFonts.kalam(
+                        color: CustomColors.themColor.withOpacity(0.5)))
                 : Container(),
             Row(
               children: List.generate(
@@ -38,7 +42,7 @@ class SearchItem extends ConsumerWidget {
                   (index) => Text(
                         joke.categories[index],
                         style: GoogleFonts.kalam(
-                            color: themColor.withOpacity(0.5)),
+                            color: CustomColors.themColor.withOpacity(0.5)),
                       )),
             ),
             Expanded(
@@ -47,7 +51,7 @@ class SearchItem extends ConsumerWidget {
                 child: Text(
                   joke.value,
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.lilitaOne(fontSize: 16),
+                  style: CustomFontStyles.lilitaOneNormal,
                 ),
               ),
             )

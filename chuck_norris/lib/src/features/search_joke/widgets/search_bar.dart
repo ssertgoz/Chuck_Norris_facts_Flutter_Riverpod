@@ -1,10 +1,10 @@
 import 'dart:async';
-
 import 'package:chuck_norris/src/constants/colors.dart';
+import 'package:chuck_norris/src/constants/font_styles.dart';
+import 'package:chuck_norris/src/constants/paddings.dart';
 import 'package:chuck_norris/src/features/search_joke/app/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SearchBarUI extends ConsumerStatefulWidget {
   const SearchBarUI({super.key});
@@ -35,28 +35,28 @@ class _SearchBarUIState extends ConsumerState<SearchBarUI> {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: CustomPaddings.smallPaddingAll,
         child: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.search,
-              color: themColor,
+              color: CustomColors.themColor,
             ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Expanded(
               child: TextField(
                 controller: _controller,
-                style: GoogleFonts.kalam(),
+                style: CustomFontStyles.kalamNormal,
                 onChanged: (value) {
                   onSearchChanged(value);
                 },
                 onSubmitted: (value) {
                   onSearchChanged(value);
                 },
-                cursorColor: themColor,
-                decoration: InputDecoration(
+                cursorColor: CustomColors.themColor,
+                decoration: const InputDecoration(
                     hintText: 'Searc jokes', border: InputBorder.none),
               ),
             ),

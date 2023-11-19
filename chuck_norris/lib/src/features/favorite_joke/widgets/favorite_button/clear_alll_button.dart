@@ -14,7 +14,8 @@ class ClearAllButtonUI extends ConsumerWidget {
     return favoritesState == FavoriteJokesState.empty
         ? Container()
         : ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: redColor),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: CustomColors.redColor),
             onPressed: () {
               ref.read(favoritesControllerProvider.notifier).clearFavorites();
               ref.read(favoritesControllerProvider.notifier).getFavorites();
@@ -23,12 +24,13 @@ class ClearAllButtonUI extends ConsumerWidget {
               children: [
                 Text(
                   "Clear All",
-                  style: TextStyle(color: lightThemeColor),
+                  style: TextStyle(color: CustomColors.lightThemeColor),
                 ),
                 SizedBox(
                   width: 10,
                 ),
-                Icon(Icons.clear_sharp, size: 20, color: lightThemeColor)
+                Icon(Icons.clear_sharp,
+                    size: 20, color: CustomColors.lightThemeColor)
               ],
             ));
   }

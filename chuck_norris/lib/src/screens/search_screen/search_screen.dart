@@ -1,13 +1,14 @@
+import 'package:chuck_norris/src/constants/assets.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/features/search_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/search_joke/widgets/search_bar.dart';
 import 'package:chuck_norris/src/features/search_joke/widgets/search_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../common/custom_loading_indicator.dart';
+import '../../constants/font_styles.dart';
+import '../../constants/paddings.dart';
 
 class SearchJokeScreen extends ConsumerWidget {
   const SearchJokeScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class SearchJokeScreen extends ConsumerWidget {
         top: true,
         bottom: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
+          padding: CustomPaddings.largePaddingHorizontal,
           child: Column(
             children: [
               const SearchBarUI(),
@@ -30,17 +31,17 @@ class SearchJokeScreen extends ConsumerWidget {
                   switch (searchState) {
                     case SearchJokeState.initial:
                       return Padding(
-                        padding: const EdgeInsets.only(bottom: 150),
+                        padding: CustomPaddings.favoriteScreenPadding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
                                 height: 250,
                                 child: LottieBuilder.asset(
-                                    "assets/animations/search.json")),
+                                    AnimationAssets.search)),
                             Text(
                               "Search Somethings",
-                              style: GoogleFonts.kalam(),
+                              style: CustomFontStyles.kalamLarge,
                             ),
                           ],
                         ),
@@ -56,19 +57,19 @@ class SearchJokeScreen extends ConsumerWidget {
                               .searchresultModel!);
                     case SearchJokeState.error:
                       return Padding(
-                        padding: const EdgeInsets.only(bottom: 150),
+                        padding: CustomPaddings.favoriteScreenPadding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
                                 height: 250,
-                                child: LottieBuilder.asset(
-                                    "assets/animations/error.json")),
+                                child:
+                                    LottieBuilder.asset(AnimationAssets.error)),
                             Text(
                               ref
                                   .watch(searchJokeControllerProvider.notifier)
                                   .errorMessage,
-                              style: GoogleFonts.kalam(),
+                              style: CustomFontStyles.kalamLarge,
                             ),
                           ],
                         ),
@@ -79,12 +80,11 @@ class SearchJokeScreen extends ConsumerWidget {
                         children: [
                           SizedBox(
                             height: 250,
-                            child: LottieBuilder.asset(
-                                "assets/animations/no_result.json",
-                                fit: BoxFit.fitHeight),
+                            child:
+                                LottieBuilder.asset(AnimationAssets.noResult),
                           ),
                           Text("There is no result",
-                              style: GoogleFonts.kalam(fontSize: 20)),
+                              style: CustomFontStyles.kalamLarge),
                         ],
                       );
                   }

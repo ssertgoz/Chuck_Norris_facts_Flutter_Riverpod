@@ -17,12 +17,16 @@ class SearchJokeController extends StateNotifier<SearchJokeState> {
 
   Future<void> searchJoke(String searchText) async {
     try {
-      state = SearchJokeState.loading;
-      searchresultModel = await _searchJokeService.searchJoke(searchText);
-      if (searchresultModel!.jokes.isEmpty) {
-        state = SearchJokeState.empty;
+      if (searchText == "") {
+        state = SearchJokeState.initial;
       } else {
-        state = SearchJokeState.success;
+        state = SearchJokeState.loading;
+        searchresultModel = await _searchJokeService.searchJoke(searchText);
+        if (searchresultModel!.jokes.isEmpty) {
+          state = SearchJokeState.empty;
+        } else {
+          state = SearchJokeState.success;
+        }
       }
     } on NoInternetConnectionException catch (e) {
       errorMessage = e.message;

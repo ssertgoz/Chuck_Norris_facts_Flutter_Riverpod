@@ -53,14 +53,14 @@ class _FavoriteButtonState extends ConsumerState<FavoriteButton> {
         },
         child: Row(
           children: [
-            Text("Like"),
-            SizedBox(
+            Text(_favoritesState ? "Dislike" : "Like"),
+            const SizedBox(
               width: 10,
             ),
             Icon(
               _favoritesState ? Icons.favorite : Icons.favorite_border,
               size: 20,
-              color: redColor,
+              color: CustomColors.redColor,
             )
           ],
         ));

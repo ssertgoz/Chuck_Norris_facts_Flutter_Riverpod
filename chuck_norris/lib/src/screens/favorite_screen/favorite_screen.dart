@@ -1,12 +1,14 @@
 import 'package:chuck_norris/src/common/custom_loading_indicator.dart';
+import 'package:chuck_norris/src/constants/assets.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
 import 'package:chuck_norris/src/features/favorite_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/favorite_joke/widgets/favorite_button/clear_alll_button.dart';
 import 'package:chuck_norris/src/features/search_joke/widgets/search_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import '../../constants/font_styles.dart';
+import '../../constants/paddings.dart';
 
 class FavoriteJokesScreen extends ConsumerStatefulWidget {
   const FavoriteJokesScreen({Key? key}) : super(key: key);
@@ -33,7 +35,7 @@ class _FavoriteJokesScreenState extends ConsumerState<FavoriteJokesScreen> {
         title: Text("Favoriets"),
       ),
       body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 28),
+          padding: CustomPaddings.largePaddingHorizontal,
           child: Builder(
             builder: (context) {
               switch (favoritesState) {
@@ -43,14 +45,14 @@ class _FavoriteJokesScreenState extends ConsumerState<FavoriteJokesScreen> {
                   return Stack(
                     children: [
                       ListView.builder(
-                        padding: EdgeInsets.only(top: 100, bottom: 200),
+                        padding: CustomPaddings.listPadding,
                         itemCount: favorites!.length,
                         itemBuilder: (context, index) =>
                             SearchItem(joke: favorites[index]),
                       ),
                       Container(
                           alignment: Alignment.topRight,
-                          margin: EdgeInsets.only(top: 20),
+                          margin: CustomPaddings.largePaddingVertical,
                           child:
                               const IntrinsicWidth(child: ClearAllButtonUI()))
                     ],
@@ -58,18 +60,17 @@ class _FavoriteJokesScreenState extends ConsumerState<FavoriteJokesScreen> {
                 case FavoriteJokesState.empty:
                   return Center(
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          bottom: 150, left: 18, right: 18),
+                      padding: CustomPaddings.favoriteScreenPadding,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
                               height: 250,
                               child: LottieBuilder.asset(
-                                  "assets/animations/box.json")),
+                                  AnimationAssets.emptyBox)),
                           Text(
                             "You dont have any favorite joke",
-                            style: GoogleFonts.kalam(fontSize: 20),
+                            style: CustomFontStyles.kalamLarge,
                           )
                         ],
                       ),
@@ -78,18 +79,17 @@ class _FavoriteJokesScreenState extends ConsumerState<FavoriteJokesScreen> {
                 case FavoriteJokesState.error:
                   return Center(
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          bottom: 150, left: 18, right: 18),
+                      padding: CustomPaddings.favoriteScreenPadding,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
                               height: 250,
-                              child: LottieBuilder.asset(
-                                  "assets/animations/error.json")),
+                              child:
+                                  LottieBuilder.asset(AnimationAssets.error)),
                           Text(
-                            "You dont have any favorite joke",
-                            style: GoogleFonts.kalam(fontSize: 20),
+                            "Unknown error occured while getting favorites",
+                            style: CustomFontStyles.kalamLarge,
                           )
                         ],
                       ),

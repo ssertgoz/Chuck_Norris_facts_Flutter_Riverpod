@@ -8,7 +8,7 @@ class LoadingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Center(
         child: SpinKitFadingCircle(
-          color: themColor,
+          color: CustomColors.themColor,
         ),
       );
 }

@@ -1,7 +1,7 @@
-import 'package:chuck_norris/src/constants/colors.dart';
+import 'package:chuck_norris/src/constants/assets.dart';
+import 'package:chuck_norris/src/constants/font_styles.dart';
+import 'package:chuck_norris/src/constants/paddings.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../models/joke_model.dart';
 
 class JokeCardUI extends StatelessWidget {
@@ -12,14 +12,12 @@ class JokeCardUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(28.0),
+        padding: CustomPaddings.largePaddingAll,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Container(
-                child: Image.asset("assets/images/chuck.png"),
-              ),
+              child: Image.asset(ImageAssets.chuck),
             ),
             Expanded(
                 child: Container(
@@ -27,10 +25,7 @@ class JokeCardUI extends StatelessWidget {
               child: Text(
                 joke.value,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.kalam(
-                    fontWeight: FontWeight.w700,
-                    color: darkThemeColor,
-                    fontSize: 17),
+                style: CustomFontStyles.kalamNormalBold,
               ),
             )),
             Column(
@@ -41,14 +36,14 @@ class JokeCardUI extends StatelessWidget {
                 ),
                 Text(
                   "Categories:",
-                  style: GoogleFonts.lilitaOne(),
+                  style: CustomFontStyles.lilitaOneNormal,
                 ),
                 Wrap(
                   children: List.generate(
                       joke.categories.length,
                       (index) => Text(
                             "${joke.categories[index]}, ",
-                            style: GoogleFonts.kalam(),
+                            style: CustomFontStyles.kalamNormal,
                           )),
                 )
               ],
@@ -63,11 +58,11 @@ class JokeCardUI extends StatelessWidget {
                   children: [
                     Text(
                       "Created At",
-                      style: GoogleFonts.lilitaOne(),
+                      style: CustomFontStyles.lilitaOneNormal,
                     ),
                     Text(
                       joke.createdAt.substring(0, 10),
-                      style: GoogleFonts.kalam(),
+                      style: CustomFontStyles.kalamNormal,
                     )
                   ],
                 ),
@@ -75,11 +70,11 @@ class JokeCardUI extends StatelessWidget {
                   children: [
                     Text(
                       "Updated At",
-                      style: GoogleFonts.lilitaOne(),
+                      style: CustomFontStyles.lilitaOneNormal,
                     ),
                     Text(
                       joke.updatedAt.substring(0, 10),
-                      style: GoogleFonts.kalam(),
+                      style: CustomFontStyles.kalamNormal,
                     )
                   ],
                 ),

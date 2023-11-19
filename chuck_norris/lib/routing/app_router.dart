@@ -8,6 +8,14 @@ import 'package:chuck_norris/src/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+class RouteNames {
+  static const categoriesScreen = '/a';
+  static const searchScreen = '/b';
+  static const favoritesScreen = '/c';
+  static const randomJokeScreen = '/d';
+  static const jokeDetailScreen = '/e';
+}
+
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorCategoryKey =
     GlobalKey<NavigatorState>(debugLabel: 'Category');
@@ -16,43 +24,37 @@ final _shellNavigatorSearchJokeKey =
 final _shellNavigatorFavoriteJokeKey =
     GlobalKey<NavigatorState>(debugLabel: 'Favorite Joke');
 
-// the one and only GoRouter instance
 final goRouter = GoRouter(
-  initialLocation: '/a',
+  initialLocation: '/c',
   navigatorKey: _rootNavigatorKey,
   routes: [
     GoRoute(
       path: '/d',
-      builder: (context, state) => RandomJokeScreen(),
+      builder: (context, state) => const RandomJokeScreen(),
     ),
     GoRoute(
       path: '/e',
-      builder: (context, state) => DetailsScreen(),
+      builder: (context, state) => const DetailsScreen(),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
-        // the UI shell
         return NestedNavigation(navigationShell: navigationShell);
       },
       branches: [
-        // first branch (A)
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorCategoryKey,
+          navigatorKey: _shellNavigatorFavoriteJokeKey,
           routes: [
-            // top route inside branch
             GoRoute(
-              path: '/a',
+              path: '/c',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: CategoryScreen(),
+                child: FavoriteJokesScreen(),
               ),
             ),
           ],
         ),
-
         StatefulShellBranch(
           navigatorKey: _shellNavigatorSearchJokeKey,
           routes: [
-            // top route inside branch
             GoRoute(
               path: '/b',
               pageBuilder: (context, state) =>
@@ -61,13 +63,12 @@ final goRouter = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorFavoriteJokeKey,
+          navigatorKey: _shellNavigatorCategoryKey,
           routes: [
-            // top route inside branch
             GoRoute(
-              path: '/c',
+              path: '/a',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: FavoriteJokesScreen(),
+                child: CategoryScreen(),
               ),
             ),
           ],

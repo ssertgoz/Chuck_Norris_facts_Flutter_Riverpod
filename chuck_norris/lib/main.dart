@@ -16,9 +16,9 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       routerConfig: goRouter,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Chuck Horris',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: themColor),
+        colorScheme: ColorScheme.fromSeed(seedColor: CustomColors.themColor),
         useMaterial3: true,
       ),
     );

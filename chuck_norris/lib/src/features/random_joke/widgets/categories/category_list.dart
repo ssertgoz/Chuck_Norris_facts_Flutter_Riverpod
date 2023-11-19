@@ -1,3 +1,4 @@
+import 'package:chuck_norris/src/constants/paddings.dart';
 import 'package:chuck_norris/src/features/random_joke/app/providers.dart';
 import 'package:chuck_norris/src/features/random_joke/widgets/categories/category_item_button.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +12,11 @@ class CategoryListUI extends ConsumerWidget {
     final categoriesController =
         ref.watch(categoriesControllerProvider.notifier);
     return ListView.builder(
-      padding: EdgeInsets.only(bottom: 300, top: 50),
+      padding: CustomPaddings.listPadding,
       itemCount: categoriesController.categoriesModel?.categories.length ?? 0,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.only(bottom: 5.0),
+          padding: CustomPaddings.listItemPadding,
           child: CategoryItemButtonUI(
             category: categoriesController.categoriesModel!.categories[index],
           ),

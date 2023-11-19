@@ -1,3 +1,4 @@
+import 'package:chuck_norris/src/constants/paddings.dart';
 import 'package:chuck_norris/src/models/search_result_model.dart';
 import 'package:chuck_norris/src/features/search_joke/widgets/search_item.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class SearchList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView.builder(
-      padding: EdgeInsets.only(top: 50),
+      padding: CustomPaddings.listPadding,
       itemCount: searchResult.total,
       itemBuilder: (context, index) =>
           SearchItem(joke: searchResult.jokes[index]),

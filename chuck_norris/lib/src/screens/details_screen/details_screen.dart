@@ -5,6 +5,8 @@ import 'package:chuck_norris/src/features/search_joke/app/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../constants/paddings.dart';
+
 class DetailsScreen extends ConsumerWidget {
   const DetailsScreen({super.key});
 
@@ -15,24 +17,25 @@ class DetailsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: CustomPaddings.mediumPaddingHorizontal,
         child: Column(
           children: [
-            Expanded(flex: 2, child: JokeCardUI(joke: selectedJoke!)),
+            Expanded(flex: 3, child: JokeCardUI(joke: selectedJoke!)),
             Expanded(
+                flex: 2,
                 child: Container(
-              margin: const EdgeInsets.only(top: 20),
-              alignment: Alignment.topCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SeeOnTheWebButtonUI(url: selectedJoke.url),
-                  FavoriteButton(
-                    joke: selectedJoke,
-                  )
-                ],
-              ),
-            ))
+                  margin: CustomPaddings.mediumPaddingVertical,
+                  alignment: Alignment.topCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SeeOnTheWebButtonUI(url: selectedJoke.url),
+                      FavoriteButton(
+                        joke: selectedJoke,
+                      )
+                    ],
+                  ),
+                ))
           ],
         ),
       ),

@@ -31,7 +31,7 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
           Positioned(
             bottom: 0,
             left: 0,
-            child: Container(
+            child: SizedBox(
               width: size.width,
               height: 100,
               child: Stack(
@@ -43,26 +43,28 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                       painter: BNBCustomPainter(),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: size.width,
                     height: 100,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         AnimatedIconButton(
-                            icon: Icons.category,
-                            iconColor:
-                                currentIndex == 0 ? themColor : disabledColor,
+                            icon: Icons.favorite,
+                            iconColor: currentIndex == 0
+                                ? CustomColors.themColor
+                                : CustomColors.disabledColor,
                             onPressed: () {
                               setBottomBarIndex(0);
                             }),
                         SizedBox(
-                          width: 50,
+                          width: MediaQuery.of(context).size.width * 0.2,
                         ),
                         AnimatedIconButton(
-                            icon: Icons.favorite,
-                            iconColor:
-                                currentIndex == 2 ? themColor : disabledColor,
+                            icon: Icons.category,
+                            iconColor: currentIndex == 2
+                                ? CustomColors.themColor
+                                : CustomColors.disabledColor,
                             onPressed: () {
                               setBottomBarIndex(2);
                             }),
@@ -75,8 +77,9 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                       height: 80,
                       width: 80,
                       child: FloatingActionButton(
-                        backgroundColor:
-                            currentIndex == 1 ? themColor : lightThemeColor,
+                        backgroundColor: currentIndex == 1
+                            ? CustomColors.themColor
+                            : CustomColors.lightThemeColor,
                         shape: const CircleBorder(),
                         elevation: 2,
                         isExtended: true,
@@ -84,8 +87,8 @@ class CustomBottomNawBarState extends State<CustomBottomNawBar> {
                         child: AnimatedIconButton(
                             icon: Icons.search,
                             iconColor: currentIndex == 1
-                                ? lightThemeColor
-                                : disabledColor,
+                                ? CustomColors.lightThemeColor
+                                : CustomColors.disabledColor,
                             onPressed: () {
                               setBottomBarIndex(1);
                             }),
@@ -106,7 +109,7 @@ class BNBCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = lightThemeColor
+      ..color = CustomColors.lightThemeColor
       ..style = PaintingStyle.fill;
 
     Path path = Path();
@@ -114,18 +117,14 @@ class BNBCustomPainter extends CustomPainter {
     path.quadraticBezierTo(size.width * 0.0, 0, size.width * 0.13, 0);
     path.lineTo(size.width * 0.25, 0);
     path.quadraticBezierTo(size.width * 0.32, 0, size.width * 0.35, 10);
-    // path.arcToPoint(Offset(size.width * 0.55, 30),
-    //     radius: Radius.circular(50.0), clockwise: false);
     path.quadraticBezierTo(size.width * 0.45, 36, size.width * 0.5, 35);
     path.quadraticBezierTo(size.width * 0.55, 36, size.width * 0.65, 10);
-    //path.lineTo(size.width * 0.65, 10);
     path.quadraticBezierTo(size.width * 0.68, 0, size.width * 0.75, 0);
     path.lineTo(size.width * 0.87, 0);
     path.quadraticBezierTo(size.width * 1.0, 0, size.width * 1, 80);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-    //path.lineTo(0, 20);
-    canvas.drawShadow(path, darkThemeColor, 15, false);
+    canvas.drawShadow(path, CustomColors.darkThemeColor, 15, false);
     canvas.drawPath(path, paint);
   }
 

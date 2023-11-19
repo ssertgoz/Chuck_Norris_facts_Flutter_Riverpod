@@ -1,4 +1,6 @@
+import 'package:chuck_norris/src/constants/assets.dart';
 import 'package:chuck_norris/src/constants/enums.dart';
+import 'package:chuck_norris/src/constants/paddings.dart';
 import 'package:chuck_norris/src/features/random_joke/app/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,18 +33,17 @@ class CategoryScreen extends ConsumerWidget {
               );
             case CategoryState.success:
               return const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 28),
+                padding: CustomPaddings.largePaddingHorizontal,
                 child: CategoryListUI(),
               );
             case CategoryState.error:
               return Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: CustomPaddings.mediumPaddingAll,
                 child: Column(
                   children: [
                     SizedBox(
                         height: 250,
-                        child: LottieBuilder.asset(
-                            "assets/animations/error.json")),
+                        child: LottieBuilder.asset(AnimationAssets.error)),
                     Text(
                       categoriesErrorMessage,
                       style: GoogleFonts.kalam(),
