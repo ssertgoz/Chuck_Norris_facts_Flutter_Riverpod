@@ -1,5 +1,5 @@
 
-## Flutter Chuck Norris App
+# Flutter Chuck Norris App
 
 ### Persönliche Daten
 
@@ -11,7 +11,7 @@ The project adheres to a clean and organized structure for clarity and maintaina
 
 ![screen shot](screen_shots/folder.png)
 
-![screen shot](screen_shots/Screenshot 2023-11-20 at 00.20.04.jpg)
+![screen shot](screen_shots/1.png)
 
 Components includes app features. each component has Data layer, Application Layer and presentation layer, Hence, screens and other UI widgets can use this components easily. This structure also enable us to remove and add features without difficulty. The reason why I exclude screens and some other widgets from features is that we are using features on the screens or in another words inside a widget. so we can use multiple features in a widget or in a screen. so if we put a screen to inside of a feature, we need to communicate with between features. But in this way we are communication on the screens with which feature we want and removing communication between features. This enable us more flexibility when we want to remove or add feature to a screen in the future.    
 
@@ -48,27 +48,35 @@ Animations are implemented throughout the app to provide a more engaging user ex
 ## Features:
 
 * You can browse available categories on the Categories Screen
-![screen shot](screen_shots/Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.46.41.jpg)
+
+![screen shot](screen_shots/2.png)
 
 
 * You can browse random Chuck Norris fact by selecting a category from Categories Screen.
-![screen shot](screen_shots/Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.46.51.jpg)
+
+![screen shot](screen_shots/3.png)
 
 
 *  You can search Chuck Norris facts on the Search Screen
-![screen shot](screen_shots/Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.47.24.jpg)
+
+![screen shot](screen_shots/4.png)
 
 
 *  You can browse Chuck Norris fact on the web by clicking "See on the web" button on Random Joke Screen and Details Screen. And also you can add current joke to your favorite list here.
-![screen shot](screen_shots/Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.46.51.jpg)
+
+![screen shot](screen_shots/3.png)
 
 
 *  You can browse all your favorite facts on the Favorites Screen, you can clear your favorites by clicking clear all button. Favorites are permanent even if you close the app so that you can see your list later again.
-![screen shot](Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.47.05.jpg)
+
+![screen shot](screen_shots/5.png)
 
 
 *  You can beautiful Lottie animations on error states or empty states. 
-![screen shot](Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.47.37.jpg) ![screen shot](Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.47.48.jpg)![screen shot](Simulator Screenshot - iPhone 15 Pro Max - 2023-11-19 at 23.45.48.jpg) 
+
+![screen shot](screen_shots/6.png) ![screen shot](screen_shots/7.png)![screen shot](screen_shots/8.png) 
+
+#### You can check running video in screen_shots folder for more. 
 
 ### Used Libraries
 
